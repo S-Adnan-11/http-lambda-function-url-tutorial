@@ -1,0 +1,42 @@
+# This AWS SAM template has been generated from your function's configuration.
+# If your function has one or more triggers, note that the AWS resources
+# associated with these triggers aren't fully specified in this template and
+# include placeholder values. Open this template in AWS Infrastructure Composer
+# or your favorite IDE and modify it to specify a serverless application with
+# other AWS resources.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model (SAM) template describing your function.
+Resources:
+  httpfunctionurltutorial:
+    Type: AWS::Serverless::Function
+    Properties:
+      Architectures:
+        - x86_64
+      CodeUri: ./src
+      Description: >-
+        Learn about Lambda by creating an HTTP endpoint that outputs a
+        server-side rendered web page.
+      EphemeralStorage:
+        Size: 512
+      FunctionUrlConfig:
+        AuthType: NONE
+        InvokeMode: BUFFERED
+      Handler: index.handler
+      LoggingConfig:
+        LogFormat: Text
+        LogGroup: /aws/lambda/http-function-url-tutorial
+      MemorySize: 128
+      PackageType: Zip
+      RecursiveLoop: Terminate
+      Runtime: nodejs22.x
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
+      SnapStart:
+        ApplyOn: None
+      Tags:
+        lambda-console:blueprint: getting-started-with-lambda-http
+      Timeout: 3
+      Tracing: PassThrough
+      Role: >-
+        arn:aws:iam::647581606871:role/service-role/http-function-url-tutorial-role-7llhduj5
